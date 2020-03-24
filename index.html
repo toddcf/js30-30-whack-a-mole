@@ -33,9 +33,44 @@
   </div>
 
 <script>
+
   const holes = document.querySelectorAll('.hole');
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
+  let lastHole; // Declare variable to store last hole number in.
+
+  // Select a random amount of time within the min and max:
+  const randomTime = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  // Choose a random hole for the mole to pop up from:
+  const randomHole = (holes) => {
+    // "holes" is a DOM list of the .hole elements.
+    // Choose a random number between 1 and the number of holes that exist:
+    const idx = Math.floor(Math.random() * holes.length);
+
+    // Select the hole that matches the random number that was generated:
+    const hole = holes[idx];
+
+    // If you get a duplicate, do it again:
+    if (hole === lastHole) {
+      return randomHole(holes);
+    }
+
+    // Save the selected element to "lastHole":
+    lastHole = hole;
+    return hole;
+  }
+
+  // Handle mole pop-ups:
+  const popUps = () => {
+    // Get a random time between 200ms and 1 second:
+    const time = randomTime(200, 1000);
+    const hole = randomHole(holes);
+  }
+
+  // RESUME: 7:00
 
 </script>
 </body>
