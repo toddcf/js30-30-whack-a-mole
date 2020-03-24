@@ -1,1 +1,1 @@
-# js30-30-whack-a-mole
+# JavaScript 30 #30: Whack-a-Mole Game
